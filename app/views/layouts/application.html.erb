@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ajaxprueba</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<% if user_signed_in?%>
+<li>
+	<%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+</li>
+<%else%>
+<li>
+	<%= link_to "Iniciar sesión", new_user_session_path %>
+</li>
+<li>
+	<%= link_to "Crear cuenta", new_user_registration_path %>
+</li>
+<li>
+	<%= link_to "Ver quejas", new_queja_path, method: :delete %>
+</li>
+<%end%>
+
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<% unless @article.user.nil? %>
+<p>
+	Escrito por: <%= @queja.user.email %>
+</p>
+<%end%>
+
+<p>
+  <strong>User:</strong>
+  <%= @queja.user %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @queja.text %>
+</p>
+
+<%= link_to 'Edit', edit_queja_path(@queja) %> |
+<%= link_to 'Back', quejas_path %>
